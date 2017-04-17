@@ -9,7 +9,7 @@ https://github.com/pytorch/pytorch
 At the time of writing the dockerfile is named pytorch-cudnnv6
 
 2) Run build_pytorch_extended.sh  
-$ bash runme.sh
+$ bash build_pytorch_extended.sh
 
 3) Run interactively  
 $ bash run_pytorch_extended.sh
