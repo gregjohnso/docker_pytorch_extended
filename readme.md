@@ -12,6 +12,6 @@ At the time of writing the dockerfile is named pytorch-cudnnv6
 $ bash runme.sh
 
 3) Run interactively  
-$ bash 
+$ bash run_pytorch_extended.sh
 
 
