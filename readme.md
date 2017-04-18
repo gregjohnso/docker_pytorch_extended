@@ -1,8 +1,10 @@
-Creates a docker image for running pytorch on nvidia GPUs with jupyter notebook support, and installs a handful of python utils.
+# PyTorch + Jupyter on GPUs (on aws)
 
-Note: One may need to change the docker image in the Dockerfile from `pytorch-cudnnv6` to something else based on what the pytorch docker build is named .
+Creates a docker image for running PyTorch on NVIDIA GPUs with Jupyter notebook support, and installs a handful of Python utils.
 
-Steps:
+Note: One may need to change the docker image in the Dockerfile from `pytorch-cudnnv6` to something else based on what the PyTorch docker build is named.
+
+## Installlation Instructions
 - On an Ubuntu system (e.g. aws) install current nvidia drivers:
   - `sudo add-apt-repository ppa:graphics-drivers/ppa`
   - `sudo apt-get update && sudo apt-get install nvidia-378`
