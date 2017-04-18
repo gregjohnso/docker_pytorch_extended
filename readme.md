@@ -20,5 +20,11 @@ Note: One may need to change the docker image in the Dockerfile from `pytorch-cu
 - Clone this repo next to the pytorch one and run the build script
   - `build_pytorch_extended.sh`
 
-- To run interactively:  
+- To run interactively (maybe start a screen session first):
   - `bash run_pytorch_extended.sh`
+  
+  
+  - To use jupyter: once in the docker container
+    - `jupyter notebook --allow-root`
+    - and then the notebook should be available on port 9999 on http
+    
