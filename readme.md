@@ -17,7 +17,7 @@ Note: One may need to change the docker image in the Dockerfile from `pytorch-cu
   - `git clone https://github.com/pytorch/pytorch.git`
   - `cd pytorch && docker build -t pytorch-cudnnv6 .`
 
-- Clone this repo next to the pytorch one and run the uild script
+- Clone this repo next to the pytorch one and run the build script
   - `build_pytorch_extended.sh`
 
 - To run interactively:  
