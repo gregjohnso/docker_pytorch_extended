@@ -1,6 +1,8 @@
+# this file's name could change based on what the pytorch repo uses in the future
 from pytorch-cudnnv6
 
-RUN /opt/conda/bin/conda install -y jupyter natsort pillow matplotlib
+# install jupyter and some other utils
+RUN /opt/conda/bin/conda install --name pytorch-py35 jupyter natsort pillow matplotlib -y --quiet
 
 # Set up notebook config
 COPY jupyter_notebook_config.py /root/.jupyter/
