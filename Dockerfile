@@ -10,6 +10,7 @@ RUN pip install natsort
 RUN pip install pillow
 RUN pip install matplotlib
 RUN pip install torchvision
+RUN pip install scikit-learn
 
 # Set up notebook config
 COPY jupyter_notebook_config.py /root/.jupyter/
