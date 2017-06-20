@@ -1,10 +1,6 @@
 # this file's name could change based on what the pytorch repo uses in the future
 from pytorch-cudnnv6
 
-# install jupyter and some other utils
-#RUN /opt/conda/bin/conda install --name pytorch-py35 jupyter natsort pillow matplotlib -y
-#RUN /opt/conda/bin/conda install --name pytorch-py35 torchvision -c soumith -y
-
 RUN pip install jupyter
 RUN pip install natsort
 RUN pip install pillow
@@ -25,3 +21,10 @@ WORKDIR "/root"
 RUN apt-get update
 RUN apt-get install -y vim
 RUN apt-get install -y python-qt4
+
+# add aicsimage repo
+RUN git clone https://github.com/AllenCellModeling/aicsimage.git /opt/aicsimage && \
+    cd /opt/aicsimage && \
+    pip install -r requirements.txt && \
+    pip install -e .
+
