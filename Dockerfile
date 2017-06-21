@@ -25,6 +25,8 @@ RUN jupyter nbextensions_configurator enable --user
 
 # Get vim bindings set up
 RUN git clone https://github.com/lambdalisue/jupyter-vim-binding $(jupyter --data-dir)/nbextensions/vim_binding
+RUN mkdir /root/.jupyter/custom
+COPY custom.js /root/.jupyter/custom
 
 # Expose Ports for Ipython (9999)
 EXPOSE 9999
