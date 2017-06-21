@@ -2,6 +2,13 @@
 
 Creates a docker image for running PyTorch on NVIDIA GPUs with Jupyter notebook support, and installs a handful of Python utils.
 
+This branch is different from master in that it installs the package http://jupyter-contrib-nbextensions.readthedocs.io/en/latest/. This provides access to some nice add-ones, including:
+- Table of Contents: Automatically adds table of contents in the sidebar of a Jupyter notebook.
+- Autopep8: Automatic code cleanup for pep8 compliance.
+- table_beautifier: Sorting of Pandas DataFrames printed as tables, etc.
+- VIM binding: vim bindings within Jupyter notebook.
+Some of the extensions seem not to work (TODO: figure out why), but a few useful ones do.
+
 Note: One may need to change the docker image in the Dockerfile from `pytorch-cudnnv6` to something else based on what the PyTorch docker build is named.
 
 
