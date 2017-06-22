@@ -4,6 +4,14 @@ Creates a docker image for running PyTorch on NVIDIA GPUs with Jupyter notebook 
 
 Note: One may need to change the docker image in the Dockerfile from `pytorch-cudnnv6` to something else based on what the PyTorch docker build is named.
 
+This branch is different from master in that it installs the package http://jupyter-contrib-nbextensions.readthedocs.io/en/latest/. This provides access to some nice add-ones, including:
+- Table of Contents: Automatically adds table of contents in the sidebar of a Jupyter notebook.
+- Autopep8: Automatic code cleanup for pep8 compliance.
+- table_beautifier: Sorting of Pandas DataFrames printed as tables, etc.
+- VIM binding: vim bindings within Jupyter notebook.
+
+Some of the extensions seem not to work (TODO: figure out why), but a few useful ones do.
+
 ## Installlation Instructions
 - On an Ubuntu system (e.g. aws) install current nvidia drivers:
   - `sudo add-apt-repository ppa:graphics-drivers/ppa`
@@ -22,9 +30,8 @@ Note: One may need to change the docker image in the Dockerfile from `pytorch-cu
 
 - To run interactively (maybe start a screen session first):
   - `bash run_pytorch_extended.sh`
-  
-  
+
+
   - To use jupyter: once in the docker container
     - `jupyter notebook --allow-root`
     - and then the notebook should be available on port 9999 on http
-    
