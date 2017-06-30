@@ -9,6 +9,7 @@ RUN pip install torchvision
 RUN pip install scikit-learn
 RUN pip install pandas
 RUN pip install h5py
+RUN pip install tqdm
 
 # Set up notebook config
 COPY jupyter_notebook_config.py /root/.jupyter/
