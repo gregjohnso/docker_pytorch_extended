@@ -13,6 +13,7 @@ RUN pip install tqdm
 
 # Set up notebook config
 COPY jupyter_notebook_config.py /root/.jupyter/
+jupyter nbextension enable --py widgetsnbextension
 
 # Expose Ports for Ipython (9999)
 EXPOSE 9999
