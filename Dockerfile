@@ -16,7 +16,7 @@ RUN pip install jupyter_contrib_nbextensions
 
 # Set up notebook config
 COPY jupyter_notebook_config.py /root/.jupyter/
-jupyter nbextension enable --py widgetsnbextension
+RUN jupyter nbextension enable --py widgetsnbextension
 
 # Set up notebook extensions
 RUN jupyter contrib nbextension install --user
