@@ -1,5 +1,5 @@
 # this file's name could change based on what the pytorch repo uses in the future
-from pytorch-cudnnv6
+from pytorch
 
 RUN pip install jupyter
 RUN pip install natsort
