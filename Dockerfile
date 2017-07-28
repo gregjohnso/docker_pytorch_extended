@@ -42,3 +42,9 @@ RUN git clone https://github.com/AllenCellModeling/aicsimage.git /opt/aicsimage 
     pip install -r requirements.txt && \
     pip install -e .
 
+# data augmentation
+RUN pip install nibabel && \
+    git clone https://github.com/ncullen93/torchsample.git && \
+    cd torchsample && \
+    python setup.py install
+
