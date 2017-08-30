@@ -1,16 +1,17 @@
 # this file's name could change based on what the pytorch repo uses in the future
-from pytorch
+from rorydm/pytorch:master
 
 RUN pip install jupyter
 RUN pip install natsort
 RUN pip install pillow
 RUN pip install matplotlib
-RUN pip install torchvision
 RUN pip install scikit-learn
 RUN pip install pandas
 RUN pip install h5py
 RUN pip install tqdm
 RUN pip install autopep8
+RUN pip install fire
+RUN pip install seaborn
 RUN pip install jupyter_nbextensions_configurator
 RUN pip install jupyter_contrib_nbextensions
 
