@@ -1,5 +1,8 @@
 FROM pytorch/pytorch
 
+RUN apt-get update --fix-missing && apt-get install -y --no-install-recommends \
+        vim 
+        
 RUN pip --no-cache-dir install \
     jupyter\
     natsort\
@@ -39,10 +42,6 @@ EXPOSE 9999
 
 # Move to home dir for root
 WORKDIR "/root"
-
-RUN apt-get update
-RUN apt-get install -y vim
-RUN apt-get install -y python-qt4
 
 # Add aicsimage repo
 RUN git clone https://github.com/AllenCellModeling/aicsimage.git /opt/aicsimage && \
