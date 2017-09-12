@@ -1,17 +1,17 @@
-RUN pip install jupyter
-RUN pip install natsort
-RUN pip install pillow
-RUN pip install matplotlib
-RUN pip install torchvision
-RUN pip install scikit-learn
-RUN pip install pandas
-RUN pip install h5py
-RUN pip install tqdm
-RUN pip install autopep8
-RUN pip install jupyter_nbextensions_configurator
-RUN pip install jupyter_contrib_nbextensions
 FROM pytorch/pytorch
 
+RUN pip --no-cache-dir install \
+    jupyter\
+    natsort\
+    pillow \
+    matplotlib \
+    torchvision \
+    scikit-learn \
+    scikit-image \
+    pandas \
+    h5py \
+    tqdm \
+    autopep8 
 
 # Set up notebook config
 COPY jupyter_notebook_config.py /root/.jupyter/
