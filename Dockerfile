@@ -16,8 +16,8 @@ RUN pip --no-cache-dir install \
 ## Configure Jupiter notebook extensions
 
 # Set up notebook config
-COPY jupyter_notebook_config.py /root/.jupyter/
 RUN jupyter nbextension enable --py widgetsnbextension
+  COPY jupyter_notebook_config.py /root/.jupyter/
 
 # Set up notebook extensions
 RUN jupyter contrib nbextension install --user
