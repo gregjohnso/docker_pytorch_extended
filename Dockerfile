@@ -1,4 +1,5 @@
-FROM pytorch/pytorch
+# From pytorch compiled from source
+FROM pytorch
 
 RUN apt-get update --fix-missing && apt-get install -y --no-install-recommends \
         vim 
