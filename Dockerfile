@@ -15,7 +15,8 @@ RUN pip --no-cache-dir install \
     pandas \
     h5py \
     tqdm \
-    autopep8 
+    autopep8 \
+    fire
 
 ## Configure Jupiter notebook extensions
 
