@@ -1,42 +1,51 @@
-# this file's name could change based on what the pytorch repo uses in the future
-from pytorch
+# From pytorch compiled from source
+FROM pytorch
 
-RUN pip install jupyter
-RUN pip install natsort
-RUN pip install pillow
-RUN pip install matplotlib
-RUN pip install torchvision
-RUN pip install scikit-learn
-RUN pip install pandas
-RUN pip install h5py
-RUN pip install tqdm
-RUN pip install autopep8
-RUN pip install jupyter_nbextensions_configurator
-RUN pip install jupyter_contrib_nbextensions
+RUN apt-get update --fix-missing && apt-get install -y --no-install-recommends \
+        vim 
+        
+RUN pip --no-cache-dir install \
+    jupyter\
+    natsort\
+    pillow \
+    matplotlib \
+    torchvision \
+    scikit-learn \
+    scikit-image \
+    pandas \
+    h5py \
+    tqdm \
+    autopep8 \
+    fire
+
+## Configure Jupiter notebook extensions
 
 # Set up notebook config
-COPY jupyter_notebook_config.py /root/.jupyter/
-RUN jupyter nbextension enable --py widgetsnbextension
+  COPY jupyter_notebook_config.py /root/.jupyter/
 
-# Set up notebook extensions
-RUN jupyter contrib nbextension install --user
-RUN jupyter nbextensions_configurator enable --user
+# Enable JS widgets
+  RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
 
-# Get vim bindings set up
-RUN git clone https://github.com/lambdalisue/jupyter-vim-binding $(jupyter --data-dir)/nbextensions/vim_binding
-RUN mkdir -p /root/.jupyter/custom
-COPY custom.js /root/.jupyter/custom
+# Install contributed notebook extensions
+  RUN pip install https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master
+  RUN jupyter contrib nbextension install --system
+  RUN jupyter nbextension enable collapsible_headings/main
+  RUN jupyter nbextension enable spellchecker/main
+
+# Install vim bindings
+  RUN jupyter nbextension install https://github.com/lambdalisue/jupyter-vim-binding/archive/master.tar.gz --system
+  RUN jupyter nbextension enable jupyter-vim-binding-master/vim_binding
+  RUN mkdir -p /root/.jupyter/custom
+  COPY custom.js /root/.jupyter/custom
+
 
 # Expose Ports for Ipython (9999)
 EXPOSE 9999
 
+# Move to home dir for root
 WORKDIR "/root"
 
-RUN apt-get update
-RUN apt-get install -y vim
-RUN apt-get install -y python-qt4
-
-# add aicsimage repo
+# Add aicsimage repo
 RUN git clone https://github.com/AllenCellModeling/aicsimage.git /opt/aicsimage && \
     cd /opt/aicsimage && \
     pip install -r requirements.txt && \
