@@ -118,3 +118,23 @@ RUN pip install nibabel && \
     cd torchsample && \
     python setup.py install
 
+# Install Julia.
+RUN apt-get update && \
+    apt-get install -y software-properties-common && \
+    add-apt-repository -y ppa:staticfloat/julianightlies && \
+    add-apt-repository -y ppa:staticfloat/julia-deps && \
+    apt-get update && \
+    apt-get install -y julia && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN julia -e 'Pkg.init()' && \
+    julia -e 'Pkg.update()' && \
+    julia -e 'Pkg.add("HDF5")' && \
+    julia -e 'Pkg.add("Gadfly")' && \
+    julia -e 'Pkg.add("RDatasets")' && \
+    julia -e 'Pkg.add("IJulia")' && \
+    # Precompile Julia packages \
+    julia -e 'using HDF5' && \
+    julia -e 'using Gadfly' && \
+    julia -e 'using RDatasets' && \
+    julia -e 'using IJulia'
