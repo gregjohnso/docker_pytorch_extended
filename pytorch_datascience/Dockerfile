@@ -1,13 +1,15 @@
 # From pytorch compiled from source
-FROM rorydm/pytorch_extended:pytorch0.2_conda
+FROM rorydm/pytorch_extended:master
 
 # pre-reqs for base notebooks from jupyter-stacks
+ENV export DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get -yq dist-upgrade && \
     apt-get install -yq --no-install-recommends \
     wget \
     bzip2 \
     sudo \
     locales \
+    tzdata \
     fonts-liberation && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
