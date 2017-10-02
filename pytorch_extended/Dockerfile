@@ -1,15 +1,16 @@
 # From pytorch compiled from source
-FROM rorydm/pytorch:master
+ARG USER
+FROM $USER/pytorch:master
 
-# pytoch image comes with:
+# pytorch image comes with:
 #   ubuntu: build-essential cmake git curl vim ca-certificates libjpeg-dev libpng-dev
-#   python: numpy pyyaml scipy ipython mkl (in the pytorch-py35 conda environment)
+#   python: numpy pyyaml scipy ipython mkl (in the pytorch-py$PYTHON_VERSION conda environment)
 
 
 ## first we augment python with more libraries
 
 # install more python stuff
-RUN conda install -y --name pytorch-py35 \
+RUN conda install -y --name pytorch-py$PYTHON_VERSION \
     jupyter \
     natsort \
     pillow \
@@ -55,5 +56,5 @@ COPY custom.js /root/.jupyter/custom
 EXPOSE 9999
 
 # move to home dir for root
-WORKDIR "/root"
+WORKDIR "/root" 
 

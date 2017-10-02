@@ -1,5 +1,6 @@
 # From pytorch compiled from source
-FROM rorydm/pytorch_extended:master
+ARG USER
+FROM $USER/pytorch:master
 
 # pre-reqs for base notebooks from jupyter-stacks
 ENV export DEBIAN_FRONTEND=noninteractive
@@ -44,7 +45,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     rm -rf /var/lib/apt/lists/*
 
 # R packages
-RUN conda install -y --name pytorch-py35 -c r \
+RUN conda install -y --name pytorch-py$PYTHON_VERSION -c r \
     r-base \
     r-irkernel \
     r-devtools \

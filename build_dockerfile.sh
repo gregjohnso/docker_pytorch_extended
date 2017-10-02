@@ -8,5 +8,5 @@ TAG=$(git symbolic-ref --short -q HEAD)
 cd ${IMG_TYPE}
 
 # and put in a repository named after the current user
-docker build -t ${USER}/${IMG_TYPE}:${TAG} -f Dockerfile .
+docker build -t ${USER}/${IMG_TYPE}:${TAG} --build-arg USER=${USER} -f Dockerfile .
 
