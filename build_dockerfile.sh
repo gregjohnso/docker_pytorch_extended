@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-IMG_TYPE=${1}
+IMG_TYPE=${1%/}
 
 # tag the image with the current git branch name
 TAG=$(git symbolic-ref --short -q HEAD)
