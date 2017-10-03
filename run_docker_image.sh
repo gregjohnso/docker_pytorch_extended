@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-IMG_TYPE=$1
+IMG_TYPE=${1%/}
 PORT=$2
 THIS_DIR=$(pwd -P)
 TAG=$(git symbolic-ref --short -q HEAD)

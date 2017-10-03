@@ -1,6 +1,6 @@
 # From pytorch compiled from source
 ARG USER
-FROM $USER/pytorch:master
+FROM $USER/pytorch_extended:master
 
 # pre-reqs for base notebooks from jupyter-stacks
 ENV export DEBIAN_FRONTEND=noninteractive
