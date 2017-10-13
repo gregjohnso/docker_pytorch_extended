@@ -4,5 +4,5 @@
 TAG=${1%/}
 
 # and build
-docker build -t rorydm/pytorch_extras:${TAG} --build-arg -f ${TAG}/Dockerfile .
+docker build -t rorydm/pytorch_extras:${TAG} -f ${TAG}/Dockerfile .
 
