@@ -1,5 +1,5 @@
 # From pytorch compiled from source
-FROM rorydm/pytorch_extras:jupyter_base
+FROM rorydm/pytorch_extras:jupyter
 
 # pre-reqs for base notebooks from jupyter-stacks
 ENV export DEBIAN_FRONTEND=noninteractive
