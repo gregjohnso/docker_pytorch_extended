@@ -1,12 +1,8 @@
 #!/usr/bin/env bash
 
-IMG_TYPE=${1%/}
-
 # tag the image with the current git branch name
-TAG=$(git symbolic-ref --short -q HEAD)
+TAG=${1%/}
 
-cd ${IMG_TYPE}
-
-# and put in a repository named after the current user
-docker build -t ${USER}/${IMG_TYPE}:${TAG} --build-arg USER=${USER} -f Dockerfile .
+# and build
+docker build -t rorydm/pytorch_extras:${TAG} --build-arg -f ${TAG}/Dockerfile .
 

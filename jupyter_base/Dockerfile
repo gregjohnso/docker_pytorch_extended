@@ -1,6 +1,5 @@
 # From pytorch compiled from source
-ARG USER
-FROM $USER/pytorch:master
+FROM rorydm/pytorch:master
 
 # pytorch image comes with:
 #   ubuntu: build-essential cmake git curl vim ca-certificates libjpeg-dev libpng-dev
