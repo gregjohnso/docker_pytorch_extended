@@ -4,13 +4,13 @@ Creates a docker image for running PyTorch on NVIDIA GPUs with Jupyter notebook 
 
 ## Structure
 
-- There's a "regular" dockerfile in the `pytorch_extended` subdirectory -- pretty much what we've been using for a while.  It also has vim bindings and all that, but disabled by default.  This is sort of our "base" image.
+- There's a "regular" dockerfile in the `jupyter` subdirectory -- pretty much what we've been using for a while.  It also has vim bindings and all that, but disabled by default.  This is sort of our "base" image.
 
-- There's a "fancy" version in the `pytorch_datascience` subdirectory, which also has R and Julia installed and set up to work with Jupyter.  This version is built off of the `pytorch_extended` one.
+- There's a "fancy" versionis in the `jupyter_R` and `jupyter_R_julia` subdirectories, which also have R and Julia installed and set up to work with Jupyter.  The `jupyter_R` version is built off of the `jupyter` image, and `jupyter_R_julia` is built off of `jupyter_R`.
 
-- Build either from the main directory by using `bash build_dockerfile.sh <subdir_name>`.
+- Build any of the images from the main directory by using `bash build_dockerfile.sh <subdir_name>`.
 
-- Run either from the main directory by using `bash run_docker_image.sh <subdir_name> <port>`, where `<port>` is the port your'e forwarding out of the docker container, e.g. 9699.
+- Run any of from the main directory by using `bash run_docker_image.sh <subdir_name> <port>`, where `<port>` is the port you're forwarding out of the docker container, e.g. 9699.
 
 
 ## Detailed Installlation Instructions
