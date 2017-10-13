@@ -8,7 +8,9 @@ Creates a docker image for running PyTorch on NVIDIA GPUs with Jupyter notebook 
 
 - There's a "fancy" versionis in the `jupyter_R` and `jupyter_R_julia` subdirectories, which also have R and Julia installed and set up to work with Jupyter.  The `jupyter_R` version is built off of the `jupyter` image, and `jupyter_R_julia` is built off of `jupyter_R`.
 
-- Build any of the images from the main directory by using `bash build_dockerfile.sh <subdir_name>`.
+- If you just want to run things and not build them yourself, use `docker pull rorydm/pytoch_extras:<tag>` where `<tag>` is (say) `jupyter_R_julia` to pull the prebuilt images from docker hub.
+
+- To build any of the images yourself, from the main directory use `bash build_dockerfile.sh <subdir_name>`.
 
 - Run any of from the main directory by using `bash run_docker_image.sh <subdir_name> <port>`, where `<port>` is the port you're forwarding out of the docker container, e.g. 9699.
 
@@ -24,11 +26,12 @@ Creates a docker image for running PyTorch on NVIDIA GPUs with Jupyter notebook 
 
 - Install pytorch on docker: https://github.com/pytorch/pytorch (at the time of writing the dockerfile is named pytorch-cudnnv6)
   - `git clone https://github.com/pytorch/pytorch.git`
-  - `cd pytorch && docker build -t ${USER}/pytorch:master .`
+  - `cd pytorch && docker build -t rorydm/pytorch:master .`
 
 - Clone this repo next to the pytorch one and run the build script
-  - `bash build_dockerfile.sh pytorch_extended` to first build the minimally extended version
-  - `bash build_dockerfile.sh pytorch_datascience` to next build the version with R and Julia
+  - `bash build_dockerfile.sh jupyter` to first build the minimally extended version
+  - `bash build_dockerfile.sh jupyter_R` to next build the version with R
+  - `bash build_dockerfile.sh jupyter_R_julia` to next build the version with R and Julia
 
 - To run and start a jupyter server (maybe start a screen session first), from this directory:
   - `bash run_docker_image.sh <subdir_name> <port>`
