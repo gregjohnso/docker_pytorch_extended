@@ -18,7 +18,9 @@ RUN conda install -y --name pytorch-py$PYTHON_VERSION \
     scikit-image \
     pandas \
     h5py \
-    tqdm && \
+    tqdm \
+    seaborn \
+    py-xgboost && \
     conda clean -tipsy
 
 # including packages not in the main repo

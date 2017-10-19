@@ -3,7 +3,7 @@
 TAG=${1%/}
 PORT=${2}
 
-docker run --rm -ti --ipc=host \
+nvidia-docker run --rm -ti --ipc=host \
     -e "PASSWORD=jupyter1" \
     -p ${PORT}:9999 \
     -v /allen/aics/modeling/${USER}/projects:/root/projects \
