@@ -17,6 +17,7 @@ RUN conda install -y --name pytorch-py$PYTHON_VERSION \
     scikit-learn \
     scikit-image \
     pandas \
+    xlrd \
     h5py \
     tqdm \
     seaborn \
