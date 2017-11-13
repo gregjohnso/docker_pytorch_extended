@@ -35,6 +35,10 @@ RUN git clone https://github.com/AllenCellModeling/aicsimage.git /opt/aicsimage 
     pip install -r requirements.txt && \
     pip install -e .
 
+# add pytorch learning tools
+RUN git clone https://github.com/AllenCellModeling/pytorch_learning_tools.git /opt/pytorch_learning_tools && \
+    cd /opt/pytorch_learning_tools && \
+    pip install -e .
 
 ## Now set up jupyter
 
