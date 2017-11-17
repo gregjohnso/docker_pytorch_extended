@@ -6,3 +6,4 @@ require([
     CodeMirror.Vim.map("fd", "<Esc>", "insert"); // Use fd to escape.
     // CodeMirror.Vim.map("fd", "<Esc>", "insert");
 });
+
