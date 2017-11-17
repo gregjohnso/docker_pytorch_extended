@@ -3,6 +3,8 @@
 # tag the image with the current git branch name
 TAG=${1%/}
 
+cd ${TAG}
+
 # and build
-docker build -t rorydm/pytorch_extras:${TAG} -f ${TAG}/Dockerfile .
+docker build -t rorydm/pytorch_extras:${TAG} -f Dockerfile .
 
